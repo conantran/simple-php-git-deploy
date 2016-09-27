@@ -101,6 +101,11 @@ if (!defined('TMP_DIR')) define('TMP_DIR', '/tmp/spgd-'.md5(REMOTE_REPOSITORY).'
 if (!defined('CLEAN_UP')) define('CLEAN_UP', true);
 
 /**
+ * Run custom command at the end
+ */
+if (!defined('RUN_SHELL')) define('RUN_SHELL', 'ls');
+
+/**
  * Output the version of the deployed code.
  *
  * @var string Full path to the file name
@@ -330,6 +335,11 @@ if (CLEAN_UP) {
 		'rm -rf %s'
 		, TMP_DIR
 	);
+}
+
+// Run custom shell command
+if (RUN_SHELL != '') {
+	$commands['runshell'] = RUN_SHELL;
 }
 
 // =======================================[ Run the command steps ]===

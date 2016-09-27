@@ -89,6 +89,12 @@ define('TMP_DIR', '/tmp/spgd-'.md5(REMOTE_REPOSITORY).'/');
 define('CLEAN_UP', true);
 
 /**
+ * Run custom command at the end, full path the shell command
+ * Default to PHP shell
+ */
+define('RUN_SHELL', '/usr/bin/php '.TARGET_DIR.'TOOLS/rehash_core.php' );
+
+/**
  * Output the version of the deployed code.
  *
  * @var string Full path to the file name
